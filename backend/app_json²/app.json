@@ -1,0 +1,546 @@
+{
+    "app": {
+      "backend": {
+        "src": "c:\\MG_SIM\\TI\\Simativo\\backend",
+        "database": {
+          "type": "POSGRESQL",
+          "name": "db_ativos_note",
+          "conexao": {
+            "user": "postgres",
+            "password": "123456",
+            "host": "localhost",
+            "port": 5432
+          },
+          "script_src": "c:\\MG_SIM\\TI\\Simativo\\backend\\script3"
+        },
+        "tables": [
+          {
+            "name": "movimento",
+            "fields": [
+              {
+                "name": "id_empresa",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_movimento",
+                "type": "serial",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_usuario",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_imobilizado",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "descricao_movimento",
+                "type": "varchar",
+                "length": 30,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "tipo_movimento",
+                "type": "varchar",
+                "length": 30,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "data_movimento",
+                "type": "date",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "motivo_movimento",
+                "type": "varchar",
+                "length": 30,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "data_compra",
+                "type": "date",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "situacao",
+                "type": "char",
+                "length": 2,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "valor_anterior",
+                "type": "varchar",
+                "length": 30,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "valor_atual",
+                "type": "varchar",
+                "length": 30,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              }
+            ],
+            "inner_join": [],
+            "left_join": [],
+            "primaryKey": [
+              {
+                "key": "id_empresa"
+              },
+              {
+                "key": "id_movimento"
+              }
+            ],
+            "variables": {
+              "getone": "movimento",
+              "getall": "movimentos",
+              "alias": "mov"
+            },
+            "where": {
+              "parametro_01": [
+                {
+                  "name": "id_movimento",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "descricao",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "string",
+                  "padrao": 0
+                },
+                {
+                  "name": "tipo_movimento",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "string",
+                  "padrao": 0
+                },
+                {
+                  "name": "situacao",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "pagina",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "tamPagina",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "number",
+                  "padrao": 50
+                },
+                {
+                  "name": "contador",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "string",
+                  "padrao": "N"
+                },
+                {
+                  "name": "orderby",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "string",
+                  "padrao": ""
+                },
+                {
+                  "name": "sharp",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "boolean",
+                  "padrao": "false"
+                }
+              ]
+            },
+            "orderby": [
+              {
+                "label": "Código",
+                "comparativo": " != 0 ",
+                "key": "tip.id_tipo, tip.descricao"
+              },
+              {
+                "label": "Descrição",
+                "comparativo": " != 0 ",
+                "key": "tip.descricao, tip.id_tipo"
+              }
+            ],
+            "tablespace": "Producao"
+          },
+          {
+            "name": "imob_tip_carac",
+            "fields": [
+              {
+                "name": "id_empresa",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_caracteristica",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_tipo",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_imobilizado",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "data_compra",
+                "type": "date",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "data_estorno",
+                "type": "date",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "valor",
+                "type": "varchar",
+                "length": 10,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              }
+            ],
+            "inner_join": [],
+            "left_join": [],
+            "primaryKey": [
+              {
+                "key": "id_empresa"
+              },
+              {
+                "key": "id_caracteristica"
+              },
+              {
+                "key": "id_tipo"
+              },
+              {
+                "key": "id_imobilizado"
+              }
+            ],
+            "variables": {
+              "getone": "imob_tip_carac",
+              "getall": "imobs_tips_caracs",
+              "alias": "itc"
+            },
+            "where": {
+              "parametro_01": [
+                {
+                  "name": "id_empresa",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "id_imobilizado",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "id_caracteristica",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "id_tipo",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "pagina",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "tamPagina",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "number",
+                  "padrao": 50
+                },
+                {
+                  "name": "contador",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "string",
+                  "padrao": "N"
+                },
+                {
+                  "name": "orderby",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "string",
+                  "padrao": ""
+                },
+                {
+                  "name": "sharp",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "boolean",
+                  "padrao": "false"
+                }
+              ]
+            },
+            "orderby": [
+              {
+                "label": "Código",
+                "comparativo": " != 0 ",
+                "key": "itc.id_tipo, itc.id_imobilizado, itc.id_caracteristica, itc.id_empresa"
+              }
+            ],
+            "tablespace": "Producao"
+          },
+          {
+            "name": "caracteristica",
+            "fields": [
+              {
+                "name": "id_empresa",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_caracteristica",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "id_tipo",
+                "type": "int4",
+                "length": 0,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              },
+              {
+                "name": "descricao",
+                "type": "varchar",
+                "length": 30,
+                "precision": 0,
+                "nulo": "N",
+                "padrao": "",
+                "validacao": []
+              }
+            ],
+            "inner_join": [],
+            "left_join": [],
+            "primaryKey": [
+              {
+                "key": "id_empresa"
+              },
+              {
+                "key": "id_caracteristica"
+              },
+              {
+                "key": "id_tipo"
+              }
+            ],
+            "variables": {
+              "getone": "caracteristica",
+              "getall": "caracteristicas",
+              "alias": "carac"
+            },
+            "where": {
+              "parametro_01": [
+                {
+                  "name": "id_empresa",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "id_caracteristica",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "descricao",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "string",
+                  "padrao": 0
+                },
+                {
+                  "name": "id_tipo",
+                  "filtro": "S",
+                  "atividador": " !== 0 ",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "pagina",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "number",
+                  "padrao": 0
+                },
+                {
+                  "name": "tamPagina",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "number",
+                  "padrao": 50
+                },
+                {
+                  "name": "contador",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "string",
+                  "padrao": "N"
+                },
+                {
+                  "name": "orderby",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "string",
+                  "padrao": ""
+                },
+                {
+                  "name": "sharp",
+                  "filtro": "N",
+                  "atividador": "",
+                  "tipo": "boolean",
+                  "padrao": "false"
+                }
+              ]
+            },
+            "orderby": [
+              {
+                "label": "Código",
+                "comparativo": " != 0 ",
+                "key": "itc.id_tipo, itc.id_imobilizado, itc.id_caracteristica, itc.id_empresa"
+              }
+            ],
+            "tablespace": "Producao"
+          }
+        ],
+        "parametros": []
+      },
+      "frontend": {
+        "src": "c:\\MG_SIM\\TI\\Simativo\\frontend\\src\\app",
+        "server": {
+          "includes": [
+            {
+              "variable": "express",
+              "from": "express"
+            },
+            {
+              "variable": "cors",
+              "from": "cors"
+            }
+          ],
+          "app": "app",
+          "porta": 3000,
+          "rotas": [{ "path": "/", "require": ".//route//tarefaRoute.js" }]
+        }
+      }
+    }
+  }
+  
